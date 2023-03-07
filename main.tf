@@ -54,8 +54,12 @@ locals {
     aus-south-east   = "Australia Southeast"
     uae-central      = "UAE Central"            # United Arab Emirates
     uae-north        = "UAE North"              # United Arab Emirates
-    usgovvirginia    = "US Government Virginia" # US Government zones
-    usgovtexas       = "US Government Texas"    # US Government zones
+    usgovvirginia    = "USGov Virginia" # US Government zones
+    usgovtexas       = "USGov Texas"    # US Government zones
+    usgovarizona     = "USGov Arizona"  # US Government zones
+    usdodeast        = "USDoD East"     # US DoD zones
+    usdodcentral     = "USDoD Central"  # US DoD zones
+
 
     # Global/continental zones
     "asia"    = "Asia"
@@ -126,6 +130,9 @@ locals {
     # US Government zones
     "usgovvirginia" = "usgovva"
     "usgovtexas"    = "usgovtx"
+    "usgovarizona"  = "usgovaz"
+    "usdodeast"     = "usdoe"
+    "usdodcentral"  = "uscnt"
 
     # Global/continental zones
     "asia"    = "asia"   # Asia
@@ -209,6 +216,9 @@ locals {
 
     "usgovvirginia" = "usgovvirginia" # "US Gov Virginia"
     "usgovtexas"    = "usgovtexas"    # "US Gov Texas"
+    "usgovarizona"  = "usgovarizona"  # "US Gov Arizona"
+    "usdodeast"     = "usdodeast"     # "US DoD East"
+    "usdodcentral"  = "usdodcentral"  # "US DoD Central"
   }
 
   # Based on https://docs.microsoft.com/en-us/azure/availability-zones/cross-region-replication-azure
@@ -263,6 +273,9 @@ locals {
     aus-south-east   = "aus-east"
     uae-central      = "uae-north"   # United Arab Emirates
     uae-north        = "uae-central" # United Arab Emirates
+    usdod-east       = "usdod-central" #US DoD
+    usgov-virginia   = "usgov-texas" #Azure US Government
+    usgov-arizona    = "usgov-texas" #Azure US Government
   }
 
   paired_region = try(local.paired[local.location_slug], null)
